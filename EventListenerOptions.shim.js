@@ -1,5 +1,10 @@
+// ==ClosureCompiler==
+// @compilation_level SIMPLE_OPTIMIZATIONS
+// @output_file_name EventListenerOptions.shim.min.js
+// @language ECMASCRIPT5
+// ==/ClosureCompiler==
+
 (function() {
-  var table = {};
   var supportsMayCancel = false;
   document.createElement("div").addEventListener("test", function() {}, {
     get mayCancel() {
@@ -47,7 +52,7 @@
 
     Event.prototype.preventDefault = function() {
       if (!this.cancelable) {
-        console.log("Trying to PreventDefault a non-cancelable event");
+        console.warn("Trying to PreventDefault a non-cancelable event");
         return;
       }
       super_prevent_default.apply(this);
