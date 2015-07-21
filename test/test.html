@@ -1,0 +1,40 @@
+<style>
+#scroller {
+  background: blue;
+  height: 400px;
+}
+</style>
+
+<div id="scroller">
+</div>
+
+<script src="../EventListenerOptions.shim.js"></script>
+<script>
+
+function onMouseMove(e) {
+  console.log("Mouse event");
+}
+
+var a = {
+handleEvent: function(e) {
+  e.preventDefault();
+}
+};
+
+var b = {
+handleEvent: function(e) {
+  e.preventDefault();
+}
+};
+
+//document.getElementById("scroller").addEventListener('mousemove', onMouseMove);
+document.getElementById("scroller").addEventListener('mousemove', a, {mayCancel: false});
+
+//document.getElementById("scroller").addEventListener('mousemove', b, true);
+//document.getElementById("scroller").addEventListener('mousemove', b, false);
+
+//document.getElementById("scroller").removeEventListener('mousemove', a, {mayCancel: true, useCapture: false});
+
+//document.getElementById("scroller").removeEventListener('mousemove', a, false);
+
+</script>
